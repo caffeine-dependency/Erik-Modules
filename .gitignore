@@ -72,3 +72,6 @@ dataGeneration/products.json
 navAndSearchBar/client/dist/bundle.js
 
 navAndSearchBar/client/dist/bundle.js
+
+#data
+navAndSearchBar/data/products.json
