@@ -67,11 +67,12 @@ Womens/
 scraped/
 Assets/
 dataGeneration/products.json
+navAndSearchBar/db-mongo/dataGen/auto.navAndSearchBar
+navAndSearchBar/db-mongo/dataGen/products.json
+navAndSearchBar/db-mongo/dataGen/products.csv
+ss
 
 #bundle
 navAndSearchBar/client/dist/bundle.js
 
-navAndSearchBar/client/dist/bundle.js
-
-#data
-navAndSearchBar/data/products.json
+.DS_Store
