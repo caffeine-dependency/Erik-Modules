@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const { searchById , searchByName } = require('./controllers.js');
-
+const { searchById, searchByName } = require('./controllers.js');
 
 router
   .route('/id')
@@ -8,5 +7,6 @@ router
 
 router
   .route('/name')
-  .get(searchByName)
+  .get(searchByName);
+  
 module.exports = router;
