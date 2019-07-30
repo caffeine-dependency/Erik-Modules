@@ -250,12 +250,14 @@ const adjectives = [
 ];
 
 const genders = ['F', 'M', 'U']
+let count = 0;
 
 function generateSingleProduct() {
   const category = categories[Math.floor(Math.random() * (25))]
   const adjInd = Math.floor(Math.random() * (148));
   const gender = genders[Math.floor(Math.random() * (3))];
-  let product = { 
+  let product = {
+    id: count++,
     name: adjectives[adjInd] + ' ' + category,
     price: (Math.random() * (1001)).toFixed(2),
     category: category,
@@ -270,7 +272,7 @@ function generateSingleProduct() {
   return product;
 };
 
-var stream = fs.createWriteStream(__dirname + '/products.json', {flags: 'a'});
+var stream = fs.createWriteStream(__dirname + '/productstest.json', {flags: 'a'});
 function writeTenM() {
   let i = 10000000;
   write()
