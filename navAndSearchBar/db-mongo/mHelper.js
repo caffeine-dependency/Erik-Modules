@@ -1,8 +1,7 @@
 const Search = require('./index.js');
 
-const findById = () => {
-   console.log('inhelpers');
-  return Search.find({"_id": "5d3b7d5183d9b82b29f81aad"});
+const findById = (id) => {
+  return Search.find({"id": id});
  }
 
  const findByName = (query) => {
