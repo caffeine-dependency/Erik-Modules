@@ -250,12 +250,13 @@ const adjectives = [
 ];
 
 const genders = ['F', 'M', 'U']
-
+let count = 0;
 function generateSingleProduct() {
   const category = categories[Math.floor(Math.random() * (25))]
   const adjInd = Math.floor(Math.random() * (148));
   const gender = genders[Math.floor(Math.random() * (3))];
   let product = {
+    id: count++,
     name: adjectives[adjInd] + ' ' + category,
     price: (Math.random() * (1001)).toFixed(2),
     category: category,
@@ -279,7 +280,7 @@ function writeTenM() {
     do {
       let product = generateSingleProduct();
       i--;
-      stream.write(`${product.name}|${product.price}|${product.category}|${product.gender}|${product.image}|${product.rating}|${product.numRatings}|{${product.colors}}|{${product.activities}}|{${product.materials}}\n`)
+      stream.write(`${product.id}|${product.name}|${product.price}|${product.category}|${product.gender}|${product.image}|${product.rating}|${product.numRatings}|{${product.colors}}|{${product.activities}}|{${product.materials}}\n`)
     } while (i > 0 && cont);
     if (i > 0) {
       stream.once('drain', write);
