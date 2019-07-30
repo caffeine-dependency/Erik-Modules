@@ -10,8 +10,9 @@
   },
   "scripts": {
     "start": "nodemon",
-    "dataGenJson": "node ./navAndSearchBar/db-mongo/dataGen.json.js",
-    "seed": "./navAndSearchBar/data/auto.sh",
+    "dataGenJson": "node ./navAndSearchBar/db-mongo/dataGen/dataGen.json.js",
+    "dataGenCSV": "node ./navAndSearchBar/db-pg/dataGen/dataGen.sql.js",
+    "seed": "./navAndSearchBar/db-mongo/datagen/auto.sh",
     "build": "webpack -d --watch"
   },
   "dependencies": {
@@ -22,6 +23,7 @@
     "mongoose": "^5.6.3",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
+    "pg": "^7.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-icons": "^3.7.0",
