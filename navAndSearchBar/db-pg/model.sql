@@ -1,6 +1,6 @@
-\connect test
-DROP TABLE IF EXISTS test3
-CREATE TABLE test3(
+\connect sdc
+DROP TABLE IF EXISTS search
+CREATE TABLE search(
   id serial PRIMARY KEY,
   name VARCHAR,
   price VARCHAR,
@@ -14,4 +14,4 @@ CREATE TABLE test3(
   materials TEXT []
 );
 
-COPY test3 FROM '/Users/jjlee/Desktop/nav-bar-jj/navAndSearchBar/db-pg/productstest.txt' (DELIMITER('|'));
+COPY search FROM '/Users/jjlee/Desktop/nav-bar-jj/navAndSearchBar/db-pg/productstest.txt' (DELIMITER('|'));
