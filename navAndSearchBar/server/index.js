@@ -11,8 +11,5 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/../client/dist'));
 app.use('/api', router);
-app.use('/api', router);
-
-
 
 app.listen(port, () => console.log(`Listening on ${port}, smooth jazz`));
