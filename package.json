@@ -10,9 +10,9 @@
   },
   "scripts": {
     "start": "nodemon",
-    "dataGenJson": "node ./navAndSearchBar/db-mongo/dataGen/dataGen.json.js",
+    "dataGenJSON": "node ./navAndSearchBar/db-mongo/dataGen/dataGen.json.js",
     "dataGenCSV": "node ./navAndSearchBar/db-pg/dataGen/dataGen.sql.js",
-    "seed": "./navAndSearchBar/db-mongo/datagen/auto.sh",
+    "seedJSON": "./navAndSearchBar/db-mongo/datagen/auto.sh",
     "build": "webpack -d --watch"
   },
   "dependencies": {
