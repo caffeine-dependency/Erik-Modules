@@ -16,7 +16,7 @@ let searchSchema = mongoose.Schema({
   image: String,
   rating: Number,
   numRatings: String,
-  colors: [String],
+  color: String,
   activities: [String],
   materials: [String]
 });
