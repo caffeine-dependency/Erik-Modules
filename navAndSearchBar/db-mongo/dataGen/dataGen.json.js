@@ -48,34 +48,34 @@ const materials = [
 ];
 
 const colors = [
-  "RED",
-  "PINK",
-  "ORANGERED",
-  "ORANGE",
-  "GOLD",
-  "YELLOW",
-  "LAVENDER",
-  "PURPLE",
-  "INDIGO",
-  "SEAGREEN",
-  "FORESTGREEN",
-  "GREEN",
-  "DARKGREEN",
-  "OLIVE",
-  "ROYALBLUE",
-  "BLUE",
-  "MEDIUMBLUE",
-  "DARKBLUE",
-  "NAVY",
-  "LIGHTGRAY",
-  "SILVER",
-  "DARKGRAY",
-  "GRAY",
-  "DIMGRAY",
-  "LIGHTSLATEGRAY",
-  "SLATEGRAY",
-  "DARKSLATEGRAY",
-  "BLACK",
+  "Red",
+  "Pink",
+  "Orange Red",
+  "Orange",
+  "Gold",
+  "Yellow",
+  "Lavender",
+  "Purple",
+  "Indigo",
+  "Seagreen",
+  "Forest Green",
+  "Green",
+  "Dark Green",
+  "Olive",
+  "Royal Blue",
+  "Blue",
+  "Beige",
+  "Dark Blue",
+  "Navy",
+  "Light Gray",
+  "Silver",
+  "Dark Gray",
+  "Gray",
+  "Blue Gray",
+  "Brwon",
+  "Slate Gray",
+  "White",
+  "Black",
 ];
 
 const activities = [
@@ -246,35 +246,34 @@ const adjectives = [
   "White-cedar",
   "Willow",
   "Yellow-poplar",
-  "Yew",
+  "Yew"
 ];
 
 const genders = ['F', 'M', 'U']
-let count = 0;
 
 function generateSingleProduct() {
   const category = categories[Math.floor(Math.random() * (25))]
-  const adjInd = Math.floor(Math.random() * (148));
+  const adjInd = Math.floor(Math.random() * (147));
   const gender = genders[Math.floor(Math.random() * (3))];
+  const color = colors[Math.floor(Math.random() * (28))];
   let product = {
-    id: count++,
-    name: adjectives[adjInd] + ' ' + category,
+    name: color + ' ' + adjectives[adjInd] + ' ' + category,
     price: (Math.random() * (1001)).toFixed(2),
-    category: category,
-    gender: gender,
+    category,
+    gender,
     image: path + '/' + gender + '/' + category,
     rating: Math.floor(Math.random() * (101)),
     numRatings: "(" + Math.floor(Math.random() * (50)) + ")",
-    colors:  [colors[Math.floor(Math.random() * (29))]],
+    color,
     activities: [activities[Math.floor(Math.random() * (18))]],
     materials: [materials[Math.floor(Math.random() * (15))]]
   };
   return product;
 };
 
-var stream = fs.createWriteStream(__dirname + '/productstest.json', {flags: 'a'});
+var stream = fs.createWriteStream(__dirname + '/productsOne.json', {flags: 'a'});
 function writeTenM() {
-  let i = 10000000;
+  let i = 1;
   write()
   function write() {
     let cont = true;
