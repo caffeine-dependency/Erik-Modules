@@ -1,17 +1,22 @@
-// const { findById, findByName } = require('../db-mongo/mHelper.js');
-const { findById, findByName } = require('../db-pg/pHelper.js');
+const { findById, findByNameText, findByNameRegex } = require('../db-mongo/mHelper.js');
+// const { findById, findByName } = require('../db-pg/pHelper.js');
 
 const searchById = (req, res) => {
-  let id = req.query.query;
-  findById(id)
+  findById(req.query.query)
     .then((result) => res.status(200).send(result))
     .catch((err) => res.status(404).send(err))
 }
 
 const searchByName = (req, res) => {
-  let query = req.query.query;
-  findByName(req.query.query)
-    .then((result) => res.status(200).send(result))
+  findByNameText(req.query.query)
+    .then(result => {
+      if (result.length < 1) {
+        findByNameRegex(req.query.query)
+          .then(products => res.status(200).send(products))
+      } else {
+        res.status(200).send(result)
+      }
+    })
     .catch((err) => res.status(404).send(err))
 }
 
