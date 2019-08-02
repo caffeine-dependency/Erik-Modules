@@ -1,4 +1,4 @@
-const { categories } = require('../db-mongo/dataGen/dataGen.json');
+const { categories } = require('../db-mongo/dataGen/dataGen.json.js');
 
 function setupSomeData(context, events, done) {
   let q = categories[Math.floor(Math.random() * 25)];

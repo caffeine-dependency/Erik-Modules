@@ -2,12 +2,12 @@ config:
   target: 'http://localhost:2001'
   phases:
     - duration: 60
-      arrivalRate: 5
-  processor: './query.js'
+      arrivalRate: 100
+  processor: './getQuery.js'
 scenarios:
   - flow:
     - loop: 
       - function: "setupSomeData"
       - get:
           url: "/api/name?query={{ query }}"
-      count: 100
+      count: 10
