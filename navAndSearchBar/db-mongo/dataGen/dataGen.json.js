@@ -295,3 +295,5 @@ function writeTenM() {
 }
 
 writeTenM();
+
+module.exports = { categories }
