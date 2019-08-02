@@ -271,9 +271,9 @@ function generateSingleProduct() {
   return product;
 };
 
-var stream = fs.createWriteStream(__dirname + '/productsOne.json', {flags: 'a'});
+var stream = fs.createWriteStream(__dirname + '/products.json', {flags: 'a'});
 function writeTenM() {
-  let i = 1;
+  let i = 10000000;
   write()
   function write() {
     let cont = true;
