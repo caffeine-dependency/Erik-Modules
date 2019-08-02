@@ -7,8 +7,7 @@ const findById = (id) => {
 
 const findByName = (query) => {
   const searchString = `%${query}%`;
-  console.log(searchString)
-  return client.query(`SELECT name FROM search WHERE name iLIKE '${searchString}' LIMIT 24`);
+  return client.query(`SELECT * FROM search WHERE name iLIKE '${searchString}' LIMIT 24`);
 }
 
 module.exports = { findById, findByName };
