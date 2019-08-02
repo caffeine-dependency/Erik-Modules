@@ -1,6 +1,5 @@
 /* MONGO */
 // const { findById, findByNameText, findByNameRegex } = require('../db-mongo/mHelper.js');
-
 // const searchById = (req, res) => {
 //   findById(req.query.query)
 //     .then((result) => res.status(200).send(result))
@@ -21,7 +20,7 @@
 // }
 
 /* POSTGRESQL */
-const { findById, findByName } = require('../db-pg/pHelper.js');
+const { findById, findByName } = require('../db-psql/pHelper.js');
 const searchById = (req, res) => {
   findById(req.query.query)
     .then((result) => res.status(200).send(result))
