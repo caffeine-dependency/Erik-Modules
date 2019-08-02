@@ -48,34 +48,34 @@ const materials = [
 ];
 
 const colors = [
-  "RED",
-  "PINK",
-  "ORANGERED",
-  "ORANGE",
-  "GOLD",
-  "YELLOW",
-  "LAVENDER",
-  "PURPLE",
-  "INDIGO",
-  "SEAGREEN",
-  "FORESTGREEN",
-  "GREEN",
-  "DARKGREEN",
-  "OLIVE",
-  "ROYALBLUE",
-  "BLUE",
-  "MEDIUMBLUE",
-  "DARKBLUE",
-  "NAVY",
-  "LIGHTGRAY",
-  "SILVER",
-  "DARKGRAY",
-  "GRAY",
-  "DIMGRAY",
-  "LIGHTSLATEGRAY",
-  "SLATEGRAY",
-  "DARKSLATEGRAY",
-  "BLACK",
+  "Red",
+  "Pink",
+  "Orange Red",
+  "Orange",
+  "Gold",
+  "Yellow",
+  "Lavender",
+  "Purple",
+  "Indigo",
+  "Seagreen",
+  "Forest Green",
+  "Green",
+  "Dark Green",
+  "Olive",
+  "Royal Blue",
+  "Blue",
+  "Beige",
+  "Dark Blue",
+  "Navy",
+  "Light Gray",
+  "Silver",
+  "Dark Gray",
+  "Gray",
+  "Blue Gray",
+  "Brwon",
+  "Slate Gray",
+  "White",
+  "Black",
 ];
 
 const activities = [
@@ -250,28 +250,27 @@ const adjectives = [
 ];
 
 const genders = ['F', 'M', 'U']
-let count = 0;
 function generateSingleProduct() {
   const category = categories[Math.floor(Math.random() * (25))]
-  const adjInd = Math.floor(Math.random() * (148));
+  const adjInd = Math.floor(Math.random() * (147));
   const gender = genders[Math.floor(Math.random() * (3))];
+  const color = colors[Math.floor(Math.random() * (28))];
   let product = {
-    id: count++,
-    name: adjectives[adjInd] + ' ' + category,
+    name: color + ' ' + adjectives[adjInd] + ' ' + category,
     price: (Math.random() * (1001)).toFixed(2),
-    category: category,
-    gender: gender,
+    category,
+    gender,
     image: path + '/' + gender + '/' + category,
     rating: Math.floor(Math.random() * (101)),
     numRatings: "(" + Math.floor(Math.random() * (50)) + ")",
-    colors:  [colors[Math.floor(Math.random() * (29))]],
+    color: color,
     activities: [activities[Math.floor(Math.random() * (18))]],
     materials: [materials[Math.floor(Math.random() * (15))]]
   };
   return product;
 };
 
-var stream = fs.createWriteStream(__dirname + '/products.txt', {flags: 'a'});
+var stream = fs.createWriteStream(__dirname + '/products1.txt', {flags: 'a'});
 function writeTenM() {
   let i = 10000000;
   write()
@@ -280,7 +279,7 @@ function writeTenM() {
     do {
       let product = generateSingleProduct();
       i--;
-      stream.write(`${product.id}|${product.name}|${product.price}|${product.category}|${product.gender}|${product.image}|${product.rating}|${product.numRatings}|{${product.colors}}|{${product.activities}}|{${product.materials}}\n`)
+      cont = stream.write(`${product.name}|${product.price}|${product.category}|${product.gender}|${product.image}|${product.rating}|${product.numRatings}|${product.color}|{${product.activities}}|{${product.materials}}\n`)
     } while (i > 0 && cont);
     if (i > 0) {
       stream.once('drain', write);
@@ -289,4 +288,3 @@ function writeTenM() {
 }
 
 writeTenM();
-// COPY test3 FROM '/Users/jjlee/Desktop/nav-bar-jj/navAndSearchBar/db-pg/productstest.txt' (DELIMITER('|'));
