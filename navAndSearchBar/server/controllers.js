@@ -1,36 +1,9 @@
-/* MONGO */
-// const { findById, findByNameText, findByNameRegex } = require('../db-mongo/mHelper.js');
-// const searchById = (req, res) => {
-//   findById(req.query.query)
-//     .then((result) => res.status(200).send(result))
-//     .catch((err) => res.status(404).send(err))
-// }
+const  findByName  = require('../db-psql/index.js');
 
-// const searchByName = (req, res) => {
-//   findByNameText(req.query.query)
-//     .then(result => {
-//       if (result.length < 1) {
-//         findByNameRegex(req.query.query)
-//           .then(products => res.status(200).send(products))
-//       } else {
-//         res.status(200).send(result)
-//       }
-//     })
-//     .catch((err) => res.status(404).send(err))
-// }
-
-/* POSTGRESQL */
-const { findById, findByName } = require('../db-psql/pHelper.js');
-const searchById = (req, res) => {
-  findById(req.query.query)
-    .then((result) => res.status(200).send(result))
-    .catch((err) => res.status(404).send(err))
-}
-
-const searchByName = (req, res) => {
+const search = (req, res) => {
   findByName(req.query.query)
   .then(result => res.status(200).send(result))
-  .catch((err) => res.status(404).send(err));
+  .catch((err) => res.status(404).send('Could not find product'));
 }
 
-module.exports = { searchById, searchByName};
+module.exports = search;

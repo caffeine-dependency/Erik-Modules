@@ -1,5 +1,7 @@
-var { Pool } = require('pg');
-const connectionString = 'postgres://jjlee@localhost:5432/sdc';
+const { ROLE , PW, ADDRESS } = require('../../psql.config.js');
+const { Pool } = require('pg');
+
+const connectionString = `postgres://${ROLE}:${PW}@${ADDRESS}:5432/sdc`;
 const pool = new Pool({ connectionString });
 
 pool.on('error', (err, client) => {
@@ -7,4 +9,11 @@ pool.on('error', (err, client) => {
   process.exit(-1)
 })
 
-module.exports = pool;
+pool.connect();
+
+const findByName = (query) => {
+  const searchString = `%${query}%`;
+  return pool.query(`SELECT * FROM search WHERE name iLIKE '${searchString}' LIMIT 24`);
+}
+
+module.exports = findByName;
