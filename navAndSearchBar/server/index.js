@@ -10,5 +10,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use('/api', router);
-
+app.use('/loaderio-f357707ebcd3743558a61f84e307a372', (err, res) => {
+  if (err) res.status(404).send(err);
+  res.send('loaderio-f357707ebcd3743558a61f84e307a372');
+})
 app.listen(port, () => console.log(`Listening on ${port}, smooth jazz`));
