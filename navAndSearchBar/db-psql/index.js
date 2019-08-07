@@ -1,4 +1,4 @@
-const { ROLE , PW, ADDRESS } = require('../../psql.config.js');
+const { ROLE , PW, ADDRESS } = require('../../psql.configbackup.js/index.js');
 const { Pool } = require('pg');
 
 const connectionString = `postgres://${ROLE}:${PW}@${ADDRESS}:5432/sdc`;
@@ -12,7 +12,7 @@ pool.on('error', (err, client) => {
 pool.connect();
 
 const findById = (id) => {
-  return client.query(`SELECT * FROM search where id = ${id}`);
+  return pool.query(`SELECT * FROM search where id = ${id}`);
 }
 
 const findByName = (query) => {
