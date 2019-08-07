@@ -1,2 +1,3 @@
-psql.config.js
+psql.configbackup.js
 node_modules
+.DS_Store

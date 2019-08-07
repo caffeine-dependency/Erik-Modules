@@ -1,6 +1,12 @@
-const findByName = require('../db-psql/index.js');
+const { findById, findByName } = require('../db-psql/index.js');
 
-const search = (req, res) => {
+const searchById = (req, res) => {
+  findById(req.query.query)
+    .then((result) => res.status(200).send(result))
+    .catch((err) => res.status(404).send(err))
+}
+
+const searchByName = (req, res) => {
   findByName(req.query.query)
   .then(result => res.status(200).send(result))
   .catch((err) => res.status(404).send('Could not find product'));
@@ -14,4 +20,4 @@ const loader = (req, res) => {
     .catch((err) => res.status(404).send('Could not find product'));
 }
 
-module.exports = { search, loader };
+module.exports = { searchByName, loader, searchById };

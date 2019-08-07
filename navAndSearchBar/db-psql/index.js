@@ -11,9 +11,13 @@ pool.on('error', (err, client) => {
 
 pool.connect();
 
+const findById = (id) => {
+  return client.query(`SELECT * FROM search where id = ${id}`);
+}
+
 const findByName = (query) => {
   const searchString = `%${query}%`;
   return pool.query(`SELECT * FROM search WHERE name iLIKE '${searchString}' LIMIT 24`);
 }
 
-module.exports = findByName;
+module.exports = { findById, findByName };

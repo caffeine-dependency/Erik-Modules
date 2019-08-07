@@ -1,9 +1,13 @@
 const router = require('express').Router();
-const { search, loader } = require('./controllers.js');
+const { searchByName, loader, searchById } = require('./controllers.js');
 
 router
   .route('/search')
-  .get(search);
+  .get(searchByName);
+
+router
+  .route('/id')
+  .get(searchById);
 
 router
   .route('/test')
