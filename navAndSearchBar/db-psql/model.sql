@@ -1,7 +1,8 @@
 DROP DATABASE IF EXISTS SDC;
-CREATE DATABSE SDC;
+CREATE DATABASE SDC;
 
 CREATE TABLE search(
+  id serial PRIMARY KEY,
   name VARCHAR,
   price VARCHAR,
   category VARCHAR,
@@ -14,4 +15,4 @@ CREATE TABLE search(
   materials TEXT []
 );
 
-COPY search FROM '/Users/jjlee/Desktop/nav-bar-jj/navAndSearchBar/db-psql/dataGen/products.txt' (DELIMITER('|'));
+COPY search FROM 'dataGen/products.txt' (DELIMITER('|'));
