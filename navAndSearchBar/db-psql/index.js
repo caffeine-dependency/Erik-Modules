@@ -1,5 +1,7 @@
-var { Pool } = require('pg');
-const connectionString = 'postgres://jjlee@localhost:5432/sdc';
+const { ROLE , PW, ADDRESS } = require('../../psql.config.js');
+const { Pool } = require('pg');
+
+const connectionString = `postgres://${ROLE}:${PW}@${ADDRESS}:5432/sdc`;
 const pool = new Pool({ connectionString });
 
 pool.on('error', (err, client) => {
